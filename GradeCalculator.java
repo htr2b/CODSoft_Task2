@@ -1,4 +1,3 @@
-package Grade;
 
 import java.util.Scanner;
 
@@ -11,7 +10,13 @@ public class GradeCalculator {
 		int totalGrade = 0;
 		for (int i = 0; i < numOfSub; i++) {
 			System.out.println("Enter grade for the " + (i + 1) + ". subject between 0-100");
-			grades[i] = sc.nextInt();
+			int tempInt = sc.nextInt();
+			while (tempInt<0 || tempInt>100){
+				System.out.println("Enter a number between 0-100.");
+				tempInt = sc.nextInt();
+			}
+
+			grades[i] = tempInt;
 			totalGrade += grades[i];
 		}
 		double averagePercentage = (double) totalGrade / numOfSub;
